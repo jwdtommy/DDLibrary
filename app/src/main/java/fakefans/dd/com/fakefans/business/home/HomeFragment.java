@@ -10,7 +10,7 @@ import fakefans.dd.com.fakefans.ui.base.BaseListFragment;
  */
 public class HomeFragment extends BaseListFragment {
     private TopChannel topChannel;
-    private  HomePresenter homePresenter;
+   // private  HomePresenter homePresenter;
     public  static  final String KEY_TOP_CHANNEL="topchannel";
     @Override
     public void onShow() {
@@ -18,7 +18,7 @@ public class HomeFragment extends BaseListFragment {
         topChannel= (TopChannel) getArguments().getSerializable(KEY_TOP_CHANNEL);
 
         Log.i("jwd","topChannel ="+topChannel.toString());
-        homePresenter =new HomePresenter();
-        homePresenter.getNewsGroup(topChannel);
+    //    homePresenter =new HomePresenter();
+    //    homePresenter.getNewsGroup(topChannel);
     }
 }

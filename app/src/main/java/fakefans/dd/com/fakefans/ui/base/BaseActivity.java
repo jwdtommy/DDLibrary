@@ -17,7 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(onCreateView());
         ButterKnife.bind(this);
-        EventBus.getDefault().register(this);
+     //   EventBus.getDefault().register(this);
     }
     public abstract @LayoutRes int onCreateView();
 }

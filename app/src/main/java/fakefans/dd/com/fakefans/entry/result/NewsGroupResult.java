@@ -3,9 +3,8 @@ package fakefans.dd.com.fakefans.entry.result;
 import java.util.List;
 
 import fakefans.dd.com.fakefans.entry.NewsGroup;
-import fakefans.dd.com.fakefans.entry.base.BaseResult;
 
-public class NewsGroupResult extends BaseResult {
+public class NewsGroupResult {
 	/**
 	 * 
 	 */

@@ -20,7 +20,7 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         TopChannelPresenter presenter=new TopChannelPresenter();
-        presenter.getTopChannels();
+    //    presenter.getTopChannels();
         return inflater.inflate(R.layout.fragment_home_list, container, false);
     }
 }

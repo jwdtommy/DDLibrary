@@ -5,13 +5,15 @@ import java.io.Serializable;
 /**
  * Created by adong on 16/4/19.
  */
-public class Result implements Serializable{
+public class Result<T> implements Serializable{
 
     private int  errorCode ;
     private String   errorMsg;
     private String responseTimestamp;
     private String httpResponseCode;
     private boolean hasMoreData;
+
+    private T data;
 
 
     public int getErrorCode() {
@@ -52,5 +54,13 @@ public class Result implements Serializable{
 
     public void setHasMoreData(boolean hasMoreData) {
         this.hasMoreData = hasMoreData;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }
