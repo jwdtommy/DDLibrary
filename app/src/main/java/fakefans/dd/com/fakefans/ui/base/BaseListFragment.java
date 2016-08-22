@@ -18,16 +18,15 @@ import fakefans.dd.com.fakefans.R;
 public abstract class BaseListFragment extends BaseFragment {
 
     @Bind(R.id.layout_refresh)
-    SwipeRefreshLayout swipeRefreshLayout;
+    public SwipeRefreshLayout swipeRefreshLayout;
     @Bind((R.id.rv_content))
-    RecyclerView recyclerView;
+    public RecyclerView recyclerView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
-
     @Override
     public void onShow() {
 //        swipeRefreshLayout.post(new Runnable() {

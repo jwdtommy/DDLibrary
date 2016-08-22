@@ -1,6 +1,10 @@
 package fakefans.dd.com.fakefans.business.home;
 
+import android.os.Looper;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
+import org.byteam.superadapter.SuperAdapter;
 
 import fakefans.dd.com.fakefans.Subscriber.SubscriberOnNextListener;
 import fakefans.dd.com.fakefans.business.News.NewsPresenter;
@@ -27,10 +31,17 @@ public class HomeFragment extends BaseListFragment implements SubscriberOnNextLi
 
     @Override
     public void onNext(NewsData data) {
+     //   Log.i("tab","NewsData="+data.toString());
+        recyclerView.setAdapter(new SuperAdapter(getActivity(),data.getPagebean().getContentlist(),0) {
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        Log.i("tab","NewsData="+data.toString());
+            }
 
+            @Override
+            public void onBind(Object holder, int viewType, int layoutPosition,NewsData.PagebeanBean.ContentlistBean item) {
 
-
+            }
+        });
     }
 }
