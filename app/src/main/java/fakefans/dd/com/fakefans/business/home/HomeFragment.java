@@ -2,23 +2,35 @@ package fakefans.dd.com.fakefans.business.home;
 
 import android.util.Log;
 
-import fakefans.dd.com.fakefans.entry.TopChannel;
+import fakefans.dd.com.fakefans.Subscriber.SubscriberOnNextListener;
+import fakefans.dd.com.fakefans.business.News.NewsPresenter;
+import fakefans.dd.com.fakefans.entry.NewsData;
+import fakefans.dd.com.fakefans.entry.Tabs;
 import fakefans.dd.com.fakefans.ui.base.BaseListFragment;
 
 /**
  * Created by adong on 16/4/20.
  */
-public class HomeFragment extends BaseListFragment {
-    private TopChannel topChannel;
-   // private  HomePresenter homePresenter;
-    public  static  final String KEY_TOP_CHANNEL="topchannel";
+public class HomeFragment extends BaseListFragment implements SubscriberOnNextListener<NewsData> {
+    private Tabs tab;
+
+    private NewsPresenter newsPresenter;
+
+    public  static  final String KEY_TAB="key_tab";
     @Override
     public void onShow() {
         super.onShow();
-        topChannel= (TopChannel) getArguments().getSerializable(KEY_TOP_CHANNEL);
+        tab= (Tabs) getArguments().getSerializable(KEY_TAB);
+        newsPresenter=new NewsPresenter();
+        newsPresenter.getNews(getActivity(),this,tab.type,"1");
+    }
 
-        Log.i("jwd","topChannel ="+topChannel.toString());
-    //    homePresenter =new HomePresenter();
-    //    homePresenter.getNewsGroup(topChannel);
+    @Override
+    public void onNext(NewsData data) {
+
+        Log.i("tab","NewsData="+data.toString());
+
+
+
     }
 }

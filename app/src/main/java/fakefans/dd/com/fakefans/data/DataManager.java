@@ -10,5 +10,4 @@ import fakefans.dd.com.fakefans.entry.TopChannel;
  */
 public class DataManager {
     public static List<TopChannel> topChannels=new ArrayList<>();
-
 }

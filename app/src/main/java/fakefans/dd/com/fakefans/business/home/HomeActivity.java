@@ -14,10 +14,11 @@ import fakefans.dd.com.fakefans.Subscriber.SubscriberOnNextListener;
 import fakefans.dd.com.fakefans.business.topchannel.TopChannelEvent;
 import fakefans.dd.com.fakefans.business.topchannel.TopChannelPresenter;
 import fakefans.dd.com.fakefans.data.DataManager;
+import fakefans.dd.com.fakefans.entry.NewsData;
 import fakefans.dd.com.fakefans.entry.TopChannel;
 import fakefans.dd.com.fakefans.ui.base.BaseActivity;
 
-public class HomeActivity extends BaseActivity implements SubscriberOnNextListener<List<TopChannel>>{
+public class HomeActivity extends BaseActivity{
 
      @Bind(R.id.tab_FindFragment_title)TabLayout tabLayout;
      @Bind(R.id.vp_FindFragment_pager) ViewPager viewPager;
@@ -30,13 +31,17 @@ public class HomeActivity extends BaseActivity implements SubscriberOnNextListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
-        TopChannelPresenter topChannelPresenter=new TopChannelPresenter();
-        topChannelPresenter.getTopChannel(this,this);
+//        TopChannelPresenter topChannelPresenter=new TopChannelPresenter();
+//        topChannelPresenter.getTopChannel(this,this);
+
     }
 
     private void init()
     {
         homePagerAdapter=new HomePagerAdapter(this.getSupportFragmentManager());
+        viewPager.setAdapter(homePagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setTabsFromPagerAdapter(homePagerAdapter);
     }
 
 //    @Subscribe
@@ -49,12 +54,12 @@ public class HomeActivity extends BaseActivity implements SubscriberOnNextListen
 //        tabLayout.setTabsFromPagerAdapter(homePagerAdapter);
 //    };
 
-    @Override
-    public void onNext(List<TopChannel> data) {
-        homePagerAdapter.notify(data);
-        viewPager.setAdapter(homePagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setTabsFromPagerAdapter(homePagerAdapter);
-    }
+//    @Override
+//    public void onNext(List<TopChannel> data) {
+//        homePagerAdapter.notify(data);
+//        viewPager.setAdapter(homePagerAdapter);
+//        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.setTabsFromPagerAdapter(homePagerAdapter);
+//    }
 
 }

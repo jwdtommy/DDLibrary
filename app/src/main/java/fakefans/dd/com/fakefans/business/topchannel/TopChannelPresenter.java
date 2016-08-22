@@ -34,9 +34,9 @@ public class TopChannelPresenter {
 
     }
 
-    public void getTopChannel(SubscriberOnNextListener<List<TopChannel>> listener, Context context)
-    {
-        HttpHelper.getInstance().getTopchannel(new ProgressSubscriber(listener,context));
-    }
+//    public void getTopChannel(SubscriberOnNextListener<List<TopChannel>> listener, Context context)
+//    {
+//        HttpHelper.getInstance().getTopchannel(new ProgressSubscriber(listener,context));
+//    }
 
 }
