@@ -1,15 +1,11 @@
 package fakefans.dd.com.fakefans.business.home;
-
-import android.os.Looper;
-import android.util.Log;
-
+import org.byteam.superadapter.animation.SlideInBottomAnimation;
 import fakefans.dd.com.fakefans.Subscriber.SubscriberOnNextListener;
 import fakefans.dd.com.fakefans.business.News.NewsAdapter;
 import fakefans.dd.com.fakefans.business.News.NewsPresenter;
 import fakefans.dd.com.fakefans.entry.NewsData;
 import fakefans.dd.com.fakefans.entry.Tabs;
 import fakefans.dd.com.fakefans.ui.base.BaseListFragment;
-
 /**
  * Created by adong on 16/4/20.
  */
@@ -17,19 +13,43 @@ public class HomeFragment extends BaseListFragment implements SubscriberOnNextLi
     private Tabs tab;
 
     private NewsPresenter newsPresenter;
+    private NewsAdapter newsAdapter;
+    public static final String KEY_TAB = "key_tab";
+    private int page = 1;
 
-    public  static  final String KEY_TAB="key_tab";
     @Override
     public void onShow() {
         super.onShow();
-        tab= (Tabs) getArguments().getSerializable(KEY_TAB);
-        newsPresenter=new NewsPresenter();
-        newsPresenter.getNews(getActivity(),this,tab.type,"1");
+        tab = (Tabs) getArguments().getSerializable(KEY_TAB);
+        newsPresenter = new NewsPresenter();
+        newsPresenter.getNews(getActivity(), this, tab.type, page + "");
+        //  adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onRefreshData() {
+        page = 1;
+        newsPresenter.getNews(getActivity(), this, tab.type, page + "");
     }
 
     @Override
     public void onNext(NewsData data) {
-     //   Log.i("tab","NewsData="+data.toString());
-        recyclerView.setAdapter(new NewsAdapter(getActivity(),data.getPagebean().getContentlist()));
+
+        swipeRefreshLayout.setRefreshing(false);
+        if (page == 1) {
+            newsAdapter = new NewsAdapter(getActivity(), data.getPagebean().getContentlist());
+            newsAdapter.openLoadAnimation(1000, new SlideInBottomAnimation());
+            newsAdapter.setOnlyOnce(false);
+            recyclerView.setAdapter(newsAdapter);
+        } else {
+            newsAdapter.addAll(data.getPagebean().getContentlist());
+        }
     }
+
+    @Override
+    public void onLoadMoreData() {
+        page++;
+        newsPresenter.getNews(getActivity(), this, tab.type, page + "");
+    }
+
 }

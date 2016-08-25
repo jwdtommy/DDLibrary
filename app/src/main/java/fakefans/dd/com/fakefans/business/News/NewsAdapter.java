@@ -40,7 +40,7 @@ public class NewsAdapter extends SuperAdapter<NewsData.PagebeanBean.ContentlistB
     public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, NewsData.PagebeanBean.ContentlistBean item) {
         switch (getItemViewType(layoutPosition)) {
             case TYPE_WORD_INT:
-                holder.setText(R.id.tv_name,item.getName());
+                holder.setText(R.id.tv_name,item.getText());
                 break;
         }
     }

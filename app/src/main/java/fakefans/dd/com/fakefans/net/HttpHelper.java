@@ -35,20 +35,29 @@ import rx.schedulers.Schedulers;
  * Created by adong on 16/4/19.
  */
 public class HttpHelper {
+    private static final String TAG = "HttpHelper";
+
 
     private static final String SHOW_API_APP_ID = "760";
     private static final String SHOW_API_APP_SIGN = "8f62887a9b1f4124afb8076bbaf16543";
     private static final String PARAMS_SHOW_API_APP_ID = "showapi_appid";
     private static final String PARAMS_SHOW_API_APP_SIGN = "showapi_sign";
 
-    private static final String TAG = "HttpHelper";
-    public static final String BASE_URL = "http://rmrbapi.people.cn/";
     public static final String BASE_URL_SHOW_API = "http://route.showapi.com/";
 
-    private static final int DEFAULT_TIMEOUT = 5;
-    private APIService apiService;
+
+    private final String CACHE_NAME = "Cache";
+    private final int CACHE_SIZE = 10 * 1024 * 1024;
+
+    private final int MAX_AGE = 60;//在线缓存一分钟
+    private final int MAX_STALE = 60 * 60 * 24 * 30;     //离线缓存一个月
+
+    private static final int DEFAULT_TIMEOUT = 5;//http超时时间
+
+
 
     private Retrofit retrofit;
+    private APIService apiService;
 
     private static final class Singlton {
         public static final HttpHelper instatnce = new HttpHelper();
@@ -75,10 +84,8 @@ public class HttpHelper {
 
     private OkHttpClient getCacheOkHttpClient(final Context context) {
         final File baseDir = context.getCacheDir();
-        final File cacheDir = new File(baseDir, "HttpResponseCache");
-        // Timber.e(cacheDir.getAbsolutePath());
-        final Cache cache = new Cache(cacheDir, 10 * 1024 * 1024);   //缓存可用大小为10M
-//
+        final File cacheDir = new File(baseDir, CACHE_NAME);
+        final Cache cache = new Cache(cacheDir, CACHE_SIZE);   //缓存可用大小为10M
         return new OkHttpClient.Builder()
                 .addInterceptor(PUBLIC_PARAMS)
                 .addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
@@ -142,19 +149,17 @@ public class HttpHelper {
 
             Response originalResponse = chain.proceed(request);
             if (CommonUtils.isNetworkConnected(App.getInstance())) {
-                int maxAge = 60;                  //在线缓存一分钟
                 return originalResponse.newBuilder()
                         .removeHeader("Pragma")
                         .removeHeader("Cache-Control")
-                        .header("Cache-Control", "public, max-age=" + maxAge)
+                        .header("Cache-Control", "public, max-age=" + MAX_AGE)
                         .build();
 
             } else {
-                int maxStale = 60 * 60 * 24 * 4 * 7;     //离线缓存4周
                 return originalResponse.newBuilder()
                         .removeHeader("Pragma")
                         .removeHeader("Cache-Control")
-                        .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                        .header("Cache-Control", "public, only-if-cached, max-stale=" + MAX_STALE)
                         .build();
             }
         }
@@ -176,39 +181,6 @@ public class HttpHelper {
         }
     }
 
-//    private static final Interceptor REWRITE_RESPONSE_INTERCEPTOR = new Interceptor() {
-//        @Override
-//        public Response intercept(Chain chain) throws IOException {
-//            Response originalResponse = chain.proceed(chain.request());
-//            String cacheControl = originalResponse.header("Cache-Control");
-//
-//            if (cacheControl == null || cacheControl.contains("no-store") || cacheControl.contains("no-cache") ||
-//                    cacheControl.contains("must-revalidate") || cacheControl.contains("max-age=0")) {
-//                return originalResponse.newBuilder()
-//                        .header("Cache-Control", "public, max-age=" + 10)
-//                        .build();
-//            } else {
-//                return originalResponse;
-//            }
-//        }
-//    };
-//
-//
-//    private static final Interceptor OFFLINE_INTERCEPTOR = new Interceptor() {
-//        @Override
-//        public Response intercept(Chain chain) throws IOException {
-//            Request request = chain.request();
-//            if (!CommonUtils.isNetworkConnected(App.getInstance())) {
-//                int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks stale
-//                request = request.newBuilder()
-//                        .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-//                        .build();
-//            }
-//            return chain.proceed(request);
-//        }
-//    };
-
-
     private <T> void toSubscribe(Observable<T> o, Subscriber<T> s) {
         o.subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -216,17 +188,9 @@ public class HttpHelper {
                 .subscribe(s);
     }
 
-
-    //    public void getTopchannel(Subscriber<List<TopChannel>> subscriber) {
-//        Observable observable = apiService.getTopChannels()
-//                .map(new HttpResultFunc<List<TopChannel>>());
-//        toSubscribe(observable, subscriber);
-//    }
-    public void getNews(Subscriber<NewsData> subscriber,String type,String page) {
-        Observable observable = apiService.getNews(type, "",page)
+    public void getNews(Subscriber<NewsData> subscriber, String type, String page) {
+        Observable observable = apiService.getNews(type, "", page)
                 .map(new HttpResultFunc<NewsData>());
         toSubscribe(observable, subscriber);
     }
-
-
 }

@@ -4,16 +4,11 @@ package fakefans.dd.com.fakefans.entry.base;
  * Created by adong on 16/8/22.
  */
 public class ShowApiResult<T> {
-//    private String showapi_appid;
-//    private String showapi_sign;
-//    private String showapi_timestamp;
-//    private String showapi_sign_method;
-//    private String showapi_res_gzip;
+//
 
     private String showapi_res_code;
     private String showapi_res_error;
     private T showapi_res_body;
-
 
     public String getShowapi_res_code() {
         return showapi_res_code;
