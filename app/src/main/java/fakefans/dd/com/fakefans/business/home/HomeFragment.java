@@ -38,7 +38,6 @@ public class HomeFragment extends BaseListFragment implements SubscriberOnNextLi
         swipeRefreshLayout.setRefreshing(false);
         if (page == 1) {
             newsAdapter = new NewsAdapter(getActivity(), data.getPagebean().getContentlist());
-            newsAdapter.openLoadAnimation(1000, new SlideInBottomAnimation());
             newsAdapter.setOnlyOnce(false);
             recyclerView.setAdapter(newsAdapter);
         } else {

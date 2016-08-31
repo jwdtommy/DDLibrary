@@ -8,8 +8,13 @@
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
-        />
+        android:textColor="#000000" />
+
+    <fakefans.dd.com.fakefans.fresco.FrescoImageView
+
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

@@ -9,16 +9,16 @@ import org.byteam.superadapter.internal.SuperViewHolder;
 import java.util.List;
 
 import fakefans.dd.com.fakefans.R;
+import fakefans.dd.com.fakefans.entry.Image;
 import fakefans.dd.com.fakefans.entry.NewsData;
+import fakefans.dd.com.fakefans.fresco.FrescoImageLoader;
+import fakefans.dd.com.fakefans.fresco.FrescoImageView;
+import fakefans.dd.com.fakefans.fresco.ImageDisplayConfig;
 
 /**
  * Created by adong on 16/8/22.
  */
 public class NewsAdapter extends SuperAdapter<NewsData.PagebeanBean.ContentlistBean> {
-    private final String TYPE_PIC = "10";
-    private final String TYPE_WORD = "29";
-    private final String TYPE_AUDIO = "31";
-    private final String TYPE_VIDEO = "41";
     private final int TYPE_PIC_INT = 0;
     private final int TYPE_WORD_INT = 1;
     private final int TYPE_AUDIO_INT = 2;
@@ -40,7 +40,13 @@ public class NewsAdapter extends SuperAdapter<NewsData.PagebeanBean.ContentlistB
     public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, NewsData.PagebeanBean.ContentlistBean item) {
         switch (getItemViewType(layoutPosition)) {
             case TYPE_WORD_INT:
-                holder.setText(R.id.tv_name,item.getText());
+                holder.setText(R.id.tv_name, item.getText(
+                ));
+                FrescoImageView imageView = holder.findViewById(R.id.iv_image);
+                Image image = new Image();
+                image.setPath(item.getImage0());
+                ImageDisplayConfig config= ImageDisplayConfig.ImageDisplayConfigBuilder.newBuilder().setAutoResize(true).build();
+                FrescoImageLoader.loadImage(imageView,image,config);
                 break;
         }
     }
