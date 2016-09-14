@@ -1,5 +1,7 @@
 package com.dd.fakefans.base;
 
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -49,6 +51,7 @@ public abstract class BaseListFragment extends BaseFragment {
                 onLoadMoreData();
             }
         });
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL_LIST));
     }
 
     @Override

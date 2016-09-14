@@ -62,7 +62,7 @@ public class GirlsAdapter extends SuperAdapter<MeituInfo.PagebeanBean.Contentlis
 
     @Override
     public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, MeituInfo.PagebeanBean.ContentlistBean item) {
-        holder.setText(R.id.tv_name, item.getTitle());
+        holder.setText(R.id.tv_author, item.getTitle());
         FrescoImageView imageView = holder.findViewById(R.id.iv_image);
         Image image = new Image();
         image.setPath(item.getList().get(0).getBig());

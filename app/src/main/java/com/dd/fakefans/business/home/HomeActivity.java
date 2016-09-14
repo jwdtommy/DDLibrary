@@ -4,16 +4,17 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
-import butterknife.Bind;
+
 import com.dd.fakefans.R;
 import com.dd.fakefans.base.BaseActivity;
+
+import butterknife.Bind;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
 import rx.functions.Func1;
 
 public class HomeActivity extends BaseActivity {
-
     @Bind(R.id.tab_FindFragment_title)
     TabLayout tabLayout;
     @Bind(R.id.vp_FindFragment_pager)
@@ -54,10 +55,12 @@ public class HomeActivity extends BaseActivity {
             public void onCompleted() {
 
             }
+
             @Override
             public void onError(Throwable e) {
 
             }
+
             @Override
             public void onNext(String s) {
             }

@@ -38,8 +38,10 @@ public class NewsAdapter extends SuperAdapter<BuDeJieInfo.PagebeanBean.Contentli
     public void onBind(SuperViewHolder holder, int viewType, int layoutPosition, BuDeJieInfo.PagebeanBean.ContentlistBean item) {
         switch (getItemViewType(layoutPosition)) {
             case TYPE_WORD_INT:
-                holder.setText(R.id.tv_name, item.getText(
+                holder.setText(R.id.tv_content, item.getText(
                 ));
+                holder.setText(R.id.tv_createTime,item.getCreate_time());
+                holder.setText(R.id.tv_author,item.getName());
                 FrescoImageView imageView = holder.findViewById(R.id.iv_image);
                 Image image = new Image();
                 image.setPath(item.getImage0());
