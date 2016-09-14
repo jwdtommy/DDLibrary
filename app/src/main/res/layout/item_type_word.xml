@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/new_words_item_bg"
+                android:orientation="vertical"
+                android:padding="18dp"
+    >
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000" />
+        android:textColor="@color/color_212121"
+        android:text="Adong"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
 
-    <fakefans.dd.com.fakefans.fresco.FrescoImageView
+    <TextView
+        android:id="@+id/tv_createTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/tv_author"
+        android:layout_alignBottom="@+id/tv_author"
+        android:text="6 mins ago"
+        android:textSize="12sp"
+        android:textColor="@color/color_757575"
+        />
+
+
+    <com.dd.fakefans.widgets.FormatTextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_author"
+        android:textColor="@color/color_212121"
+        android:layout_marginTop="10dp"
+        android:lineSpacingMultiplier="1.1"
+        android:text="aaaaaaaa"
+        android:textSize="14sp"/>
+
+    <com.dd.fakefans.fresco.FrescoImageView
 
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_content"
+        android:layout_marginTop="10dp"
+        />
 
 
-</LinearLayout>
+</RelativeLayout>
