@@ -1,24 +1,17 @@
 package fakefans.dd.com.fakefans.business.home;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.TextView;
 
-import org.greenrobot.eventbus.Subscribe;
-
-import java.util.List;
-
 import butterknife.Bind;
-import butterknife.BindInt;
 import fakefans.dd.com.fakefans.R;
-import fakefans.dd.com.fakefans.Subscriber.SubscriberOnNextListener;
-import fakefans.dd.com.fakefans.business.topchannel.TopChannelEvent;
-import fakefans.dd.com.fakefans.business.topchannel.TopChannelPresenter;
-import fakefans.dd.com.fakefans.data.DataManager;
-import fakefans.dd.com.fakefans.entry.NewsData;
-import fakefans.dd.com.fakefans.entry.TopChannel;
 import fakefans.dd.com.fakefans.ui.base.BaseActivity;
+import me.wangyuwei.particleview.ParticleView;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
@@ -32,6 +25,8 @@ public class HomeActivity extends BaseActivity {
     ViewPager viewPager;
     @Bind(R.id.tv_name)
     TextView tv_name;
+    @Bind(R.id.pv)
+    ParticleView particleView;
     private HomePagerAdapter homePagerAdapter;
 
     @Override
@@ -54,6 +49,19 @@ public class HomeActivity extends BaseActivity {
         viewPager.setAdapter(homePagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabsFromPagerAdapter(homePagerAdapter);
+        particleView.startAnim();
+        particleView.setOnParticleAnimListener(new ParticleView.ParticleAnimListener() {
+            @Override
+            public void onAnimationEnd() {
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        particleView.setVisibility(View.GONE);
+
+                    }
+                });
+            }
+        });
     }
 
     private void RXDemo() {

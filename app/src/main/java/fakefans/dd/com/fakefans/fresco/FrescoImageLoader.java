@@ -204,7 +204,7 @@ public class FrescoImageLoader {
 
     private static void updateViewSize(DraweeView<GenericDraweeHierarchy> imageView, ImageInfo imageInfo) {
         if (imageInfo != null && imageInfo.getHeight() > 0) {
-//            imageView.getLayoutParams().width = imageInfo.getWidth();
+            imageView.getLayoutParams().width = imageInfo.getWidth()*3;
             imageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
             imageView.setAspectRatio((float) imageInfo.getWidth() / (float)imageInfo.getHeight());
         }

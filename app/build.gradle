@@ -64,6 +64,8 @@ dependencies {
     compile 'com.facebook.fresco:webpsupport:0.12.0'
     // 仅支持 WebP 静态图，需要添加
     //compile 'com.facebook.fresco:webpsupport:0.12.0'
+    compile 'me.wangyuwei:ParticleView:1.0.3'
+
 
 
 
