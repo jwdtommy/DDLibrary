@@ -2,9 +2,8 @@ package com.dd.fakefans.business.girls;
 
 import android.content.Context;
 
-import com.dd.fakefans.Subscriber.ProgressSubscriber;
+import com.dd.fakefans.Subscriber.ProgressSubscriber.ProgressSubscriber;
 import com.dd.fakefans.Subscriber.SubscriberOnNextListener;
-import com.dd.fakefans.entry.BuDeJieInfo;
 import com.dd.fakefans.entry.base.MeituInfo;
 import com.dd.fakefans.net.HttpHelper;
 

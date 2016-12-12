@@ -1,7 +1,9 @@
-package com.dd.fakefans.Subscriber;
+package com.dd.fakefans.Subscriber.ProgressSubscriber;
 
 import android.content.Context;
 import android.widget.Toast;
+
+import com.dd.fakefans.Subscriber.SubscriberOnNextListener;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -12,7 +14,6 @@ import rx.Subscriber;
  * 用于在Http请求开始时，自动显示一个ProgressDialog
  * 在Http请求结束是，关闭ProgressDialog
  * 调用者自己对请求数据进行处理
- * Created by liukun on 16/3/10.
  */
 public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCancelListener {
 

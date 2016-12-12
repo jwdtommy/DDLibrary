@@ -1,4 +1,4 @@
-package com.dd.fakefans.Subscriber;
+package com.dd.fakefans.Subscriber.ProgressSubscriber;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -6,9 +6,6 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
 
-/**
- * Created by liukun on 16/3/10.
- */
 public class ProgressDialogHandler extends Handler {
 
     public static final int SHOW_PROGRESS_DIALOG = 1;

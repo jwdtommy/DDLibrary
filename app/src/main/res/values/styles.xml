@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/md_pink_400</item>
         <item name="colorAccent">@color/md_pink_600</item>

@@ -1,4 +1,4 @@
-package com.dd.fakefans.Subscriber;
+package com.dd.fakefans.Subscriber.ProgressSubscriber;
 
 /**
  * Created by liukun on 16/3/10.

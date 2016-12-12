@@ -1,7 +1,11 @@
 package com.dd.fakefans.business.News;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.dd.fakefans.Subscriber.SubscriberOnNextListener;
-import com.dd.fakefans.business.News.NewsAdapter;
-import com.dd.fakefans.business.News.NewsPresenter;
 import com.dd.fakefans.entry.BuDeJieInfo;
 import com.dd.fakefans.entry.Tabs;
 import com.dd.fakefans.base.BaseListFragment;
@@ -17,12 +21,11 @@ public class NewsFragment extends BaseListFragment implements SubscriberOnNextLi
     private int page = 1;
 
     @Override
-    public void onShow() {
-        super.onShow();
+    public void onViewCreatedImpl(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreatedImpl(view, savedInstanceState);
         tab = (Tabs) getArguments().getSerializable(KEY_TAB);
         newsPresenter = new NewsPresenter();
         newsPresenter.getNews(getActivity(), this, tab.type, page + "");
-        //  adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -33,7 +36,6 @@ public class NewsFragment extends BaseListFragment implements SubscriberOnNextLi
 
     @Override
     public void onNext(BuDeJieInfo data) {
-
         swipeRefreshLayout.setRefreshing(false);
         if (page == 1) {
             newsAdapter = new NewsAdapter(getActivity(), data.getPagebean().getContentlist());
