@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:pv="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_f6f6f6"
@@ -18,9 +18,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_name"
         android:background="@color/md_pink_300"
-        app:tabIndicatorColor="@color/md_pink_500"
-        app:tabTextColor="@color/md_pink_50"
-        app:tabMode="scrollable"
+        pv:tabIndicatorColor="@color/md_pink_500"
+        pv:tabTextColor="@color/md_pink_50"
+        pv:tabMode="scrollable"
         />
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_FindFragment_pager"
@@ -28,4 +28,13 @@
         android:layout_below="@+id/tab_FindFragment_title"
         android:layout_height="fill_parent"
         />
+    <me.wangyuwei.particleview.ParticleView
+        android:id="@+id/pv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        pv:pv_background_color="#2E2E2E"
+        pv:pv_host_text="FakeFans"
+        pv:pv_particle_text=".com"
+        pv:pv_particle_text_size="14sp"
+        pv:pv_text_color="#FFF" />
 </RelativeLayout>
