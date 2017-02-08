@@ -204,16 +204,16 @@ public class FrescoImageLoader {
 
     private static void updateViewSize(DraweeView<GenericDraweeHierarchy> imageView, ImageInfo imageInfo) {
         if (imageInfo != null && imageInfo.getHeight() > 0) {
-            imageView.getLayoutParams().width = imageInfo.getWidth()*3;
+            imageView.getLayoutParams().width = imageInfo.getWidth()*6;
             imageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
             imageView.setAspectRatio((float) imageInfo.getWidth() / (float)imageInfo.getHeight());
         }
     }
 
     public static void loadImage(final DraweeView<GenericDraweeHierarchy> draweeView, Image image, int placeHolderRes) {
-        if (placeHolderRes <= 0) {
-            return;
-        }
+//        if (placeHolderRes <= 0) {
+//            return;
+//        }
         ImageDisplayConfig config = ImageDisplayConfig.ImageDisplayConfigBuilder.newBuilder().setFailureDrawable(App.getInstance(), placeHolderRes)
                 .setLoadingDrawable(App.getInstance(), placeHolderRes).build();
         loadImage(draweeView, image, config);

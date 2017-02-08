@@ -121,16 +121,20 @@ public class ImageDisplayConfig {
 		}
 
 		public ImageDisplayConfigBuilder setFailureDrawable(Context context, int failure) {
-			imageDisplayConfig.setFailureDrawable(context.getResources()
-					.getDrawable(failure));
+			if(failure>0){
+				imageDisplayConfig.setFailureDrawable(context.getResources()
+						.getDrawable(failure));
+			}
 			return this;
 		}
 
 		public ImageDisplayConfigBuilder setLoadingDrawable(Context context,int loading) {
-			Drawable drawable = context.getResources().getDrawable(loading);
-			imageDisplayConfig.setLoadingDrawable(drawable);
-			if (imageDisplayConfig.getFailureDrawable() == null) {
-				imageDisplayConfig.setFailureDrawable(drawable);
+			if(loading>0){
+				Drawable drawable = context.getResources().getDrawable(loading);
+				imageDisplayConfig.setLoadingDrawable(drawable);
+				if (imageDisplayConfig.getFailureDrawable() == null) {
+					imageDisplayConfig.setFailureDrawable(drawable);
+				}
 			}
 			return this;
 		}

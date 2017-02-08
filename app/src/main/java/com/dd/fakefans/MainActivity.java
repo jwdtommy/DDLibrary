@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.dd.fakefans.base.BaseFragment;
 import com.dd.fakefans.base.NavigateActivity;
-import com.dd.fakefans.business.home.HomeFragment;
+import com.dd.fakefans.modules.home.HomeFragment;
 
 public class MainActivity extends NavigateActivity {
 	@Override

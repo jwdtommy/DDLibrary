@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主Actitiy布局 -->
+    <item type="layout" name="activity_main"></item>
+    
+    <!-- 主场景布局两个容器 -->
+    <item type="id" name="main_container"/>
+    <item type="id" name="main_subpage_container"/>
+    
+    <!-- UIFragment使用 -->
+    <item type="id" name="common_title_bar"/>
+</resources>

@@ -17,11 +17,8 @@ public class FormatTextView extends TextView {
         super.setText(formatString((String)text), type);
     }
 
-
-    private String formatString(String str)
-    {
-        if(str==null)
-        {
+    private String formatString(String str) {
+        if(str==null) {
             return "";
         }
         return str.replaceAll("\n","");

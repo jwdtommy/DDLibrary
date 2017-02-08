@@ -7,7 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import com.dd.fakefans.entry.BuDeJieInfo;
-import com.dd.fakefans.entry.base.MeituInfo;
+import com.dd.fakefans.entry.MeituInfo;
+import com.dd.fakefans.entry.MessageInfo;
 import com.dd.fakefans.entry.base.ShowApiResult;
 import com.dd.fakefans.base.App;
 import com.dd.fakefans.utils.CommonUtils;
@@ -24,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -32,7 +34,6 @@ import rx.schedulers.Schedulers;
  */
 public class HttpHelper {
     private static final String TAG = "HttpHelper";
-
 
     private static final String SHOW_API_APP_ID = "760";
     private static final String SHOW_API_APP_SIGN = "8f62887a9b1f4124afb8076bbaf16543";
@@ -186,6 +187,16 @@ public class HttpHelper {
     public void getNews(Subscriber<BuDeJieInfo> subscriber, String type, String page) {
         Observable observable = apiService.getNews(type, "", page)
                 .map(new HttpResultFunc<BuDeJieInfo>());
+        toSubscribe(observable, subscriber);
+    }
+    public void getMessages(Subscriber<MessageInfo> subscriber, String channelId, String page) {
+        Observable observable = apiService.getMessages(channelId,page)
+                .map(new HttpResultFunc<MessageInfo>()).doOnError(new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        Log.e("AAA","throwable="+throwable.getMessage());
+                    }
+                });
         toSubscribe(observable, subscriber);
     }
     public void getGirls(Subscriber<MeituInfo> subscriber, String type, String page) {

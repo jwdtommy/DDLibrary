@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map title="" version="1">
+    <!--src可能是图片或者颜色-->
+    <background src="#ffffff" />
+    <!--zIndex:层次关系  depth:景深-->
+    <layer depth="1" id="background" zindex="0">
+        <!--线 normal|dot
+        -->
+        <line style="dot" from="texture" id="line1" tag="" to="sprite" />
+        <!--文本
+        -->
+        <text color="#ff0000" fontSize="24" height="100" id="text1" press="" tag="" text="default"
+            width="200" x="0" y="100" zindex="1" />
+        <text color="#ffffff" fontSize="16" height="34" id="" pressed="#ff0000" tag=""
+            text="" textAlign="" width="34" zindex="1"/>
+        <!--节点
+        -->
+        <node anchorX="0.5" anchorY="0.5" height="200" id="texture" src="res:map1/wolf.jpg" tag="" width="200"
+            x="0" y="0" zindex="0">
+            <!--
+            <action type="frame">
+                <frame src="res:map1/girl.png" duration="2000"/>
+                <frame src="res:map1/wolf.jpg" duration="2000"/>
+            </action>
+            <action type="scale" from="1" to="0.1" duration="10000" repeat="-1"/>
+            -->
+        </node>
+        <node anchorX="0.5" anchorY="0.5" height="200" id="sprite" src="res:map1/pic.jpg" tag="" width="200"
+            x="600" y="600" zindex="">
+            <!--
+            -->
+            <action degree="360" duration="1000" from="0" repeat="-1" type="rotate" />
+            <!--
+            <action type="translate" toX="600" toY="600" duration="1000" repeat="1"/>
+            <action type="scale" from="1" to="0.1" duration="1000" repeat="-1"/>
+            <action type="alpha" from="255" to="100" duration="1000" repeat="-1"/>
+            <action type="sequence" repeat="1">
+                <action type="translate" toX="600" toY="600" duration="1000" repeat="1"/>
+                <action type="rotate" from="0" degree="360" duration="1000" repeat="2"/>
+                <action type="scale" from="1" to="0.1" duration="1000" repeat="1"/>
+                <action type="alpha" from="255" to="100" duration="1000" repeat="1"/>
+            </action>
+            -->
+        </node>
+    </layer>
+
+</map>

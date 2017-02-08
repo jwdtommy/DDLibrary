@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="initial-scale=1.0, user-scalable=no" />
+<title>Jenkin's ListView</title>
+<script type="text/javascript" src='js/jquery.js'></script>
+<script type="text/javascript">
+	if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            var phoneScale = parseInt(window.screen.width) / 640;
+            document.write('<meta name="viewport" content="width=640, initial-scale = ' + phoneScale + ', minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+
+	/* 清空数据 */
+	function clear(size){
+		$("#list").html("");
+	}
+
+	/*
+	 * 修改某一行的数据
+	 * @param index 索引
+	 * @param html 对应行的Html
+	 */
+	function replaceOrAddRow(index, html){
+		html = decodeURIComponent(html);
+		html = html.replace(/n1b1sp/g, " ");
+		html = makeHtmlRow(html);
+		
+		var size = $("#list_item").size();
+		if (index < size) {
+			$("list_item").eq(index).html($(html).html());
+		}else{
+			for(var i= size; i<= index; i++){
+				$("#list").append(html);
+			}
+		}
+	}
+
+	/*
+	 * 删除没用的数据
+	 * @param count 数据行数
+	 */
+	function checkRows(count){
+		var size = $("list_item").size();
+		if(count < size){
+			for(var i=count-1; i< size; i++){
+				$("list_item").eq(i).remove();
+			}
+		}
+	}
+
+	/*
+	 * 修改所有数据
+	 * @param html 所有行数据
+	 */
+	function replaceAllRow(html){
+		clear();
+		html = decodeURIComponent(html);
+		html = html.replace(/n1b1sp/g, " ");
+		$('#list').html(html);
+	}
+	
+	/*
+	 * 扩充数据
+	 * @param html 所有行数据
+	 */
+	function appendRows(html){
+		html = decodeURIComponent(html);
+		html = html.replace(/n1b1sp/g, " ");
+		$('#list').append(html);
+	}
+    </script>
+</head>
+<body class="main">
+	<ul id="list"></ul>
+</body>
+</html>
