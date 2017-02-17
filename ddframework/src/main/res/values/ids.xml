@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="id_top_view">id_top_view</item>
+    <item type="id" name="id_center_view">id_center_view</item>
+    <item type="id" name="id_bottom_view">id_bottom_view</item>
+</resources>

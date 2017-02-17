@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.dd.fakefans.MainActivity$PlaceholderFragment">
+                tools:context="com.dd.news.MainActivity$PlaceholderFragment">
 
     <RelativeLayout
         android:id="@+id/rl_main_container"

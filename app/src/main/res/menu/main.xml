@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="com.dd.fakefans.modules.home.MainActivity">
+      tools:context="com.dd.news.modules.home.MainActivity">
     <item
         android:id="@+id/action_example"
         android:showAsAction="withText|ifRoom"
