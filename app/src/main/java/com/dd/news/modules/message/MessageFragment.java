@@ -1,11 +1,14 @@
 package com.dd.news.modules.message;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
+
+import com.dd.framework.utils.UIUtils;
 import com.dd.news.entry.MessageInfo;
 import com.dd.news.entry.Tabs;
-import com.dd.news.services.net.DataFetcher;
+import com.dd.news.services.api.DataFetcher;
 import com.dd.news.utils.Consts;
 import com.dd.framework.base.BaseListFragment;
 /**
@@ -21,7 +24,10 @@ public class MessageFragment extends BaseListFragment {
 	public void onViewCreatedImpl(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreatedImpl(view, savedInstanceState);
 		mTabs = (Tabs) getArguments().getSerializable(Consts.KEY_TAB);
+		mMessageAdapter=new MessageAdapter(getActivity());
+		mRecyclerView.setAdapter(mMessageAdapter);
 		loadData(ACTION_GET_MESSAGE,true);
+        mSwipeRefreshLayout.setProgressViewOffset(false, 0, UIUtils.dip2px(24));
 	}
 
 	@Override

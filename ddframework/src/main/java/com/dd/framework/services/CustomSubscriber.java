@@ -38,12 +38,13 @@ public class CustomSubscriber extends Subscriber<BaseResult> {
 
 	@Override
 	public void onError(Throwable e) {
-		if (e instanceof ApiException) {
-			mCustomSubscriberListener1.onError((ApiException) e);
-			mCustomSubscriberListener2.onError((ApiException) e);
-		} else {
-			e.printStackTrace();
-		}
+//		if (e instanceof ApiException) {
+//			mCustomSubscriberListener1.onError((ApiException) e);
+//			mCustomSubscriberListener2.onError((ApiException) e);
+//		} else {
+			mCustomSubscriberListener1.onError(e);
+			mCustomSubscriberListener2.onError(e);
+//		}
 	}
 
 	/**

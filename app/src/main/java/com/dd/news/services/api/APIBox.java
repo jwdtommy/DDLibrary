@@ -1,4 +1,4 @@
-package com.dd.news.services.net;
+package com.dd.news.services.api;
 
 import com.dd.news.entry.BuDeJieInfo;
 import com.dd.news.entry.MeituInfo;
@@ -27,7 +27,7 @@ public interface APIBox {
 //
 	Observable<ShowApiResult<MeituInfo>> getGirls(@Query("type") String type, @Query("page") String page);
 
-	@Headers("Cache-Control: public, max-age=60")
+	//@Headers("Cache-Control: public, max-age=60")
 	@GET("/109-35?needHtml=1")
 // https://www.showapi.com/api/lookPoint/109
 	Observable<ShowApiResult<MessageInfo>> getMessages(@Query("channelId")String channelId,@Query("page")String page);

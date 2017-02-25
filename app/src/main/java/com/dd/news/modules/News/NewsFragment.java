@@ -4,12 +4,9 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import com.dd.news.Subscriber.SubscriberOnNextListener;
-import com.dd.news.entry.BuDeJieInfo;
 import com.dd.news.entry.Tabs;
 import com.dd.news.utils.Consts;
 import com.dd.framework.base.BaseListFragment;
-
 /**
  * Created by adong on 16/4/20.
  */

@@ -1,14 +1,13 @@
-package com.dd.news.services.net;
+package com.dd.news.services.api;
 
-import android.text.TextUtils;
 import com.dd.framework.services.NetWorkServiceImpl;
-import com.dd.news.entry.base.ShowApiResult;
+
 import java.io.IOException;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-import rx.functions.Func1;
+
 /**
  * Created by J.Tommy on 17/2/10.
  * 遵循一个域名对应一个ApiService的原则
@@ -56,24 +55,4 @@ public class APIServiceImpl extends NetWorkServiceImpl<APIBox> {
 			return chain.proceed(newRequest);
 		}
 	};
-
-//	/**
-//	 * 用来统一处理Http的resultCode,并将HttpResult的Data部分剥离出来返回给subscriber
-//	 *
-//	 * @param <T> Subscriber真正需要的数据类型，也就是Data部分的数据类型
-//	 */
-//	private class ApiResultInterceptor<T> implements Func1<ShowApiResult<T>, T> {
-//		@Override
-//		public T call(ShowApiResult<T> showApiResult) {
-//			if (TextUtils.isEmpty(showApiResult.getShowapi_res_code()) || !showApiResult.getShowapi_res_code().equals("0")) {
-//				throw new ApiException(showApiResult.getShowapi_res_code());//error
-//			}
-//			return showApiResult.getShowapi_res_body();
-//		}
-//	}
-//
-//	@Override
-//	public Func1 configApiResultInterceptor() {
-//		return new ApiResultInterceptor();
-//	}
 }

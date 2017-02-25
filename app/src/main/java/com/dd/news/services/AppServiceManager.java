@@ -2,7 +2,7 @@ package com.dd.news.services;
 
 import com.dd.framework.base.BaseApp;
 import com.dd.framework.services.ServiceManager;
-import com.dd.news.services.net.APIServiceImpl;
+import com.dd.news.services.api.APIServiceImpl;
 /**
  * Created by J.Tommy on 17/2/13.
  */

@@ -1,11 +1,15 @@
 package com.dd.framework.base;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.dd.framework.R;
 import com.dd.framework.services.ApiException;
 import com.dd.framework.services.CustomSubscriberListener;
 import com.dd.framework.utils.UIUtils;
@@ -66,6 +70,20 @@ public abstract class CustomFragment<UIHelper, ApiHelper> extends BaseFragment i
 			paramsBottom.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 			mRootView.addView(mBottomView, paramsBottom);
 		}
+				/*
+		emptyView
+		 */
+		mEmptyView = UIViewFactory.getInstance().buildEmptyView(this);
+		mEmptyView.setVisibility(View.GONE);
+		UIUtils.setViewId(mEmptyView);
+		RelativeLayout.LayoutParams paramsEmpty = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+		if (mTopView != null) {
+			paramsEmpty.addRule(RelativeLayout.BELOW, mTopView.getId());
+		}
+		if (mBottomView != null) {
+			paramsEmpty.addRule(RelativeLayout.ABOVE, mBottomView.getId());
+		}
+		mRootView.addView(mEmptyView, paramsEmpty);
 		/*
 		center
 		 */
@@ -80,20 +98,7 @@ public abstract class CustomFragment<UIHelper, ApiHelper> extends BaseFragment i
 		}
 		mRootView.addView(mCenterView, paramsCenter);
 
-		/*
-		emptyView
-		 */
-		mEmptyView = new EmptyView(getActivity());
-		mEmptyView.setVisibility(View.GONE);
-		UIUtils.setViewId(mEmptyView);
-		RelativeLayout.LayoutParams paramsEmpty = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-		if (mTopView != null) {
-			paramsEmpty.addRule(RelativeLayout.BELOW, mTopView.getId());
-		}
-		if (mBottomView != null) {
-			paramsEmpty.addRule(RelativeLayout.ABOVE, mBottomView.getId());
-		}
-		mRootView.addView(mEmptyView, paramsEmpty);
+
 		/*
 		loadingView
 		 */
@@ -141,7 +146,11 @@ public abstract class CustomFragment<UIHelper, ApiHelper> extends BaseFragment i
 	}
 
 	@Override
-	public void onError(ApiException e) {
+	public void onError(Throwable e) {
+		if(e instanceof ApiException){
+			Toast.makeText(getActivity(),((ApiException)e).getApiExceptionMessage(),2000).show();
+		}
+		e.printStackTrace();
 		mEmptyView.setVisibility(View.VISIBLE);
 	}
 }

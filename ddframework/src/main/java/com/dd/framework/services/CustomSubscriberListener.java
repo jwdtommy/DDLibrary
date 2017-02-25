@@ -1,7 +1,4 @@
 package com.dd.framework.services;
-
-import com.dd.framework.base.BaseResult;
-
 /**
  * Created by J.Tommy on 17/2/16.
  */
@@ -13,7 +10,7 @@ public interface CustomSubscriberListener<T> {
 
 	void onCompleted();
 
-	void onError(ApiException apiException);
+	void onError(Throwable throwable);
 
 	public static class CustomSubscriberAdapter<T> implements CustomSubscriberListener<T> {
 
@@ -34,7 +31,7 @@ public interface CustomSubscriberListener<T> {
 		}
 
 		@Override
-		public void onError(ApiException apiException) {
+		public void onError(Throwable exception) {
 
 		}
 	}

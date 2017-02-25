@@ -3,6 +3,7 @@ package com.dd.news.modules.message;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import com.dd.news.R;
 import com.dd.news.entry.MessageInfo;
@@ -22,6 +23,9 @@ import java.util.List;
  * Created by adong on 16/8/22.
  */
 public class MessageAdapter extends SuperAdapter<MessageInfo.PagebeanBean.ContentlistBean> {
+	public MessageAdapter(Context context){
+     super(context,null,R.layout.item_type_word);
+	}
 	public MessageAdapter(Context context, List<MessageInfo.PagebeanBean.ContentlistBean> items) {
 		super(context, items,  R.layout.item_type_word);
 	}
