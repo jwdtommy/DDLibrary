@@ -1,11 +1,15 @@
 package com.dd.framework.base;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by adong on 16/4/20.
@@ -23,9 +27,9 @@ public abstract class BaseListFragment<T extends FragmentHelper> extends CustomF
 
     @Override
     public View onCreateCenterViewImpl(@Nullable Bundle savedInstanceState) {
-        mSwipeRefreshLayout=new SwipeRefreshLayout(getActivity());
-        mRecyclerView=new RecyclerView(getActivity());
-        mSwipeRefreshLayout.addView(mRecyclerView);
+        mSwipeRefreshLayout = new SwipeRefreshLayout(getActivity());
+        mRecyclerView = new RecyclerView(getActivity());
+        mSwipeRefreshLayout.addView(mRecyclerView, new SwipeRefreshLayout.LayoutParams(-1, -1));
         return mSwipeRefreshLayout;
     }
 
@@ -34,6 +38,7 @@ public abstract class BaseListFragment<T extends FragmentHelper> extends CustomF
         super.onViewCreatedImpl(view, savedInstanceState);
         getTopView().setVisibility(View.GONE);
         getBottomView().setVisibility(View.GONE);
+
         mSwipeRefreshLayout.setDistanceToTriggerSync(20);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -42,7 +47,7 @@ public abstract class BaseListFragment<T extends FragmentHelper> extends CustomF
             }
         });
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setHasFixedSize(false);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setOnScrollListener(new EndlessRecyclerOnScrollListener(mLinearLayoutManager) {
             @Override
@@ -50,7 +55,7 @@ public abstract class BaseListFragment<T extends FragmentHelper> extends CustomF
                 onLoadMoreData();
             }
         });
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL_LIST));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
     }
 
     public abstract void onRefreshData();
@@ -86,7 +91,14 @@ public abstract class BaseListFragment<T extends FragmentHelper> extends CustomF
             firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
             lastVisibleItem = mLinearLayoutManager.findLastVisibleItemPosition();
         }
-
         public abstract void onLoadMore();
+    }
+
+    @Override
+    public void onError(Throwable e) {
+        super.onError(e);
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
     }
 }

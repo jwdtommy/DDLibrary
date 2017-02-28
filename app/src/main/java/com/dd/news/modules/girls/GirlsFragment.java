@@ -3,10 +3,7 @@ package com.dd.news.modules.girls;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-
-import com.dd.news.Subscriber.SubscriberOnNextListener;
 import com.dd.news.entry.Tabs;
-import com.dd.news.entry.MeituInfo;
 import com.dd.framework.base.BaseListFragment;
 
 /**

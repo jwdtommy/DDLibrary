@@ -1,6 +1,5 @@
-package com.dd.news.services.net;
+package com.dd.news.services.api;
 
-import com.dd.framework.base.BaseResult;
 import com.dd.framework.services.CustomSubscriberListener;
 import com.dd.framework.widgets.CustomDataFetcher;
 import com.dd.news.App;
