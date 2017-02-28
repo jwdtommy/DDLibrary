@@ -1,16 +1,12 @@
 package com.dd.framework.services;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-
 import com.dd.framework.base.BaseApp;
 import com.dd.framework.base.BaseResult;
 import com.dd.framework.utils.CommonUtils;
-
 import java.io.File;
 import java.io.IOException;
-
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;

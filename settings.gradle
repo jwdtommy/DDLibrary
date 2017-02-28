@@ -1,1 +1,1 @@
-include ':app', ':ddframework', 'AndroidSupport', ':support'
+include ':app', ':ddframework'
