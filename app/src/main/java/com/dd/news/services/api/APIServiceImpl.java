@@ -1,6 +1,6 @@
 package com.dd.news.services.api;
 
-import com.dd.framework.services.NetWorkServiceImpl;
+import com.dd.framework.services.network.NetWorkServiceImpl;
 
 import java.io.IOException;
 import okhttp3.HttpUrl;

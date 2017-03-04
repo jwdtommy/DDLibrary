@@ -1,7 +1,7 @@
 package com.dd.framework.widgets;
 
-import com.dd.framework.services.CustomSubscriber;
-import com.dd.framework.services.CustomSubscriberListener;
+import com.dd.framework.services.network.CustomSubscriber;
+import com.dd.framework.services.network.CustomSubscriberListener;
 /**
  * Created by adong on 16/4/19.
  */

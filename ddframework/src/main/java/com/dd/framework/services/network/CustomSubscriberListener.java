@@ -1,4 +1,4 @@
-package com.dd.framework.services;
+package com.dd.framework.services.network;
 /**
  * Created by J.Tommy on 17/2/16.
  */

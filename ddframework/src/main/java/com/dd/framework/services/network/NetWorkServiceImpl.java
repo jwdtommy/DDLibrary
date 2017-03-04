@@ -1,9 +1,11 @@
-package com.dd.framework.services;
+package com.dd.framework.services.network;
 
 import android.content.Context;
 import android.util.Log;
 import com.dd.framework.base.BaseApp;
 import com.dd.framework.base.BaseResult;
+import com.dd.framework.services.network.ApiException;
+import com.dd.framework.services.network.NetWorkService;
 import com.dd.framework.utils.CommonUtils;
 import java.io.File;
 import java.io.IOException;

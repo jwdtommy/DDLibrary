@@ -1,4 +1,4 @@
-package com.dd.framework.services;
+package com.dd.framework.services.network;
 
 import android.content.Context;
 

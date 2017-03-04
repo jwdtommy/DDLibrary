@@ -1,4 +1,6 @@
-package com.dd.framework.services;
+package com.dd.framework.services.network;
+
+import com.dd.framework.services.IService;
 
 /**
  * Created by J.Tommy on 17/2/10.

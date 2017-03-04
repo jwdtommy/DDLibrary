@@ -1,6 +1,5 @@
 package com.dd.framework.base;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,9 +8,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.dd.framework.R;
-import com.dd.framework.services.ApiException;
-import com.dd.framework.services.CustomSubscriberListener;
+import com.dd.framework.services.network.ApiException;
+import com.dd.framework.services.network.CustomSubscriberListener;
 import com.dd.framework.utils.UIUtils;
 import com.dd.framework.widgets.BottomView;
 import com.dd.framework.widgets.EmptyView;

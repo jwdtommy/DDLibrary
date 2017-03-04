@@ -1,6 +1,6 @@
 package com.dd.news.services.api;
 
-import com.dd.framework.services.CustomSubscriberListener;
+import com.dd.framework.services.network.CustomSubscriberListener;
 import com.dd.framework.widgets.CustomDataFetcher;
 import com.dd.news.App;
 import com.dd.news.entry.MeituInfo;
