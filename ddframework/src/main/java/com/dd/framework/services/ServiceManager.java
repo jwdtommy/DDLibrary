@@ -18,10 +18,12 @@ public class ServiceManager implements IServiceBox {
 	public void registerFrameworkServices() {
 		//todo
 	}
+
 	@Override
 	public <S extends IService> S getService(Class<S> serviceClass) {
 			return (S)mServices.get(serviceClass.getName());
 	}
+
 	@Override
 	public void registerService(Class<? extends IService> serviceClass) {
 		try {
