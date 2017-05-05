@@ -18,7 +18,7 @@ android {
     }
     productFlavors {
     }
-    
+
     lintOptions {
         abortOnError false
     }
