@@ -22,6 +22,12 @@ android {
     lintOptions {
         abortOnError false
     }
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def file = output.outputFile
+            output.outputFile = new File(file.parent, file.name.replace(".apk", "jwd-" + defaultConfig.versionName + ".apk"))
+        }
+    }
 }
 
 
