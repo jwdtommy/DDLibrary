@@ -13,9 +13,11 @@ import com.dd.framework.widgets.ViewBuilder;
 import com.dd.news.modules.home.HomeFragment;
 import com.dd.framework.base.BaseFragment;
 import com.dd.framework.base.NavigateActivity;
+import com.dd.news.test.SceneFragment;
 import com.dd.news.widgets.TDEmptyView;
 
 public class MainActivity extends NavigateActivity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

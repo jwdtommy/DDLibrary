@@ -4,11 +4,6 @@
 package com.dd.framework.utils;
 
 import com.dd.framework.base.BaseApp;
-
-/**
- * 资源获取通用类
- * @author yangzc on 15/8/25.
- */
 public class ResourceUtils {
 
     /**
