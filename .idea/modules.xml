@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Eat.iml" filepath="$PROJECT_DIR$/Eat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TodayNews.iml" filepath="$PROJECT_DIR$/TodayNews.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ddframework/ddframework.iml" filepath="$PROJECT_DIR$/ddframework/ddframework.iml" />
       <module fileurl="file://$PROJECT_DIR$/jlibrary/jlibrary.iml" filepath="$PROJECT_DIR$/jlibrary/jlibrary.iml" />
