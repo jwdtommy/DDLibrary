@@ -10,33 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone" />
-
-    <com.dd.news.widgets.drag.DragGroupView
-        android:id="@+id/drag"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/tv_name">
-
-        <com.dd.news.widgets.drag.DragBlankView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="80dp"
-            android:background="@android:color/holo_green_light" />
-
-        <com.dd.news.widgets.drag.DragItemView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@color/abc_input_method_navigation_guard" />
-
-
-    </com.dd.news.widgets.drag.DragGroupView>
-
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_FindFragment_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/drag"
         android:background="@color/md_pink_300"
         pv:tabIndicatorColor="@color/md_pink_500"
         pv:tabMode="scrollable"
@@ -48,13 +25,13 @@
         android:layout_height="fill_parent"
         android:layout_below="@+id/tab_FindFragment_title" />
 
-    <me.wangyuwei.particleview.ParticleView
-        android:id="@+id/pv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        pv:pv_background_color="#2E2E2E"
-        pv:pv_host_text="FakeFans"
-        pv:pv_particle_text=".com"
-        pv:pv_particle_text_size="14sp"
-        pv:pv_text_color="#FFF" />
+    <FrameLayout
+        android:id="@+id/fl_spine_container"
+        android:layout_width="300dp"
+        android:layout_height="300dp">
+
+
+
+    </FrameLayout>
+
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.dd.news.modules.News;
+package com.dd.news.modules.news;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -21,8 +21,7 @@ public class NewsFragment extends BaseListFragment {
     public void onViewCreatedImpl(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreatedImpl(view, savedInstanceState);
         tab = (Tabs) getArguments().getSerializable(Consts.KEY_TAB);
-        newsPresenter = new NewsPresenter();
-    //    newsPresenter.getNews(getActivity(), this, tab.type, page + "");
+//        newsPresenter = new NewsPresenter();
     }
 
     @Override

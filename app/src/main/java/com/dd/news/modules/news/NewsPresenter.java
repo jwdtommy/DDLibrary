@@ -1,4 +1,4 @@
-package com.dd.news.modules.News;
+package com.dd.news.modules.news;
 /**
  * Created by adong on 16/8/22.
  */

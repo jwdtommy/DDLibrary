@@ -1,1 +1,1 @@
-include ':app', ':ddframework', ':jlibrary'
+include ':app', ':ddframework', ':jlibrary', ':spinelibrary', ':spinedemo'

@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Stack;
 import butterknife.ButterKnife;
 
+import static android.R.attr.x;
+
 /**
  * Created by J.Tommy on 16/11/8.
  */
@@ -83,9 +85,11 @@ public abstract class NavigateActivity extends BaseActivity implements NavigateC
 		}
 		if (mSubFragmentStack.size() > 0) {
 			mSubFragmentStack.peek().setVisibleToUser(false);
+			mSubFragmentStack.peek().onPause();
 		}
 		mSubFragmentStack.add(fragment);
 		fragment.setVisibleToUser(true);
+		fragment.onResume();
 	}
 
 

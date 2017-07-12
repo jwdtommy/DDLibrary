@@ -1,4 +1,4 @@
-package com.dd.news.modules.News;
+package com.dd.news.modules.news;
 
 import android.content.Context;
 

@@ -22,8 +22,8 @@ public class GirlsFragment extends BaseListFragment {
         super.onViewCreatedImpl(view, savedInstanceState);
         tab = (Tabs) getArguments().getSerializable(KEY_TAB);
         girlsPresenter = new GirlsPresenter();
-  //      girlsPresenter.getGirls(getActivity(), this, tab.type, page + "");
-        //  adapter.notifyDataSetChanged();
+//        girlsPresenter.getGirls(getActivity(), this, tab.type, page + "");
+//          adapter.notifyDataSetChanged();
     }
 
     @Override

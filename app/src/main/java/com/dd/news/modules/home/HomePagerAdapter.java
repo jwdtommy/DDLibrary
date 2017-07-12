@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.HashMap;
-import com.dd.news.modules.News.NewsFragment;
+import com.dd.news.modules.news.NewsFragment;
 import com.dd.news.modules.girls.GirlsFragment;
 import com.dd.news.entry.Tabs;
 import com.dd.news.modules.message.MessageFragment;

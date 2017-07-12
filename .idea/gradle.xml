@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/ddframework" />
             <option value="$PROJECT_DIR$/jlibrary" />
+            <option value="$PROJECT_DIR$/spinedemo" />
+            <option value="$PROJECT_DIR$/spinelibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
