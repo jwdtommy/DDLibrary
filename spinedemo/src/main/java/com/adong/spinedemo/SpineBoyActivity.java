@@ -7,23 +7,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
+
 import com.adong.spineaminationlibrary.SpineBaseFragment;
 import com.badlogic.gdx.backends.android.AndroidFragmentApplication;
-
 /**
  * Created by J.Tommy on 17/7/12.
  */
-
-public class SpineBoyActivity extends FragmentActivity implements AndroidFragmentApplication.Callbacks{
+public class SpineBoyActivity extends FragmentActivity implements AndroidFragmentApplication.Callbacks {
     private SpineBaseFragment mSpineBaseFragment;
     private SpineBoyAdapter mSpineBoyAdapter;
-    private GridLayout glButtons;
-    private Button btnReplaceAttachment;
-    private Button btnUnstallAttachment;
-    private Button btnReplaceSkin;
-    private Button btnJump;
-    private Button btnRun;
-    private FrameLayout flSpine;
+    private GridLayout mGlButtons;
+    private Button mBtnReplaceAttachment;
+    private Button mBtnUnstallAttachment;
+    private Button mBtnReplaceSkin;
+    private Button mBtnJump;
+    private Button mBtnRun;
+    private FrameLayout mFlSpine;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,14 +39,13 @@ public class SpineBoyActivity extends FragmentActivity implements AndroidFragmen
     }
 
     private void assignViews() {
-        glButtons = (GridLayout) findViewById(R.id.gl_buttons);
-        btnReplaceAttachment = (Button) findViewById(R.id.btn_replace_attachment);
-        btnUnstallAttachment = (Button) findViewById(R.id.btn_unstall_attachment);
-        btnReplaceSkin = (Button) findViewById(R.id.btn_replace_skin);
-        btnJump = (Button) findViewById(R.id.btn_jump);
-        btnRun = (Button) findViewById(R.id.btn_run);
-        flSpine = (FrameLayout) findViewById(R.id.fl_spine);
-        btnReplaceAttachment.setOnClickListener(new View.OnClickListener() {
+        mGlButtons = (GridLayout) findViewById(R.id.gl_buttons);
+        mBtnReplaceAttachment = (Button) findViewById(R.id.btn_replace_attachment);
+        mBtnUnstallAttachment = (Button) findViewById(R.id.btn_unstall_attachment);
+        mBtnJump = (Button) findViewById(R.id.btn_jump);
+        mBtnRun = (Button) findViewById(R.id.btn_run);
+        mFlSpine = (FrameLayout) findViewById(R.id.fl_spine);
+        mBtnReplaceAttachment.setOnClickListener(new View.OnClickListener() {
             boolean flag;
 
             @Override
@@ -60,20 +59,20 @@ public class SpineBoyActivity extends FragmentActivity implements AndroidFragmen
             }
         });
 
-        btnUnstallAttachment.setOnClickListener(new View.OnClickListener() {
+        mBtnUnstallAttachment.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 mSpineBoyAdapter.setAttachment("gun", "");
             }
         });
-        btnJump.setOnClickListener(new View.OnClickListener() {
+        mBtnJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mSpineBoyAdapter.doJump();
             }
         });
-        btnRun.setOnClickListener(new View.OnClickListener() {
+        mBtnRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mSpineBoyAdapter.doRun();
